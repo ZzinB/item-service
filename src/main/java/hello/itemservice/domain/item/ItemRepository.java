@@ -2,6 +2,7 @@ package hello.itemservice.domain.item;
 
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +22,10 @@ public class ItemRepository {
     }
     public Item findById(Long id){
         return store.get(id);
+    }
+
+    public List<Item> findAll() {
+        return new ArrayList<>(store.values());
     }
 
 

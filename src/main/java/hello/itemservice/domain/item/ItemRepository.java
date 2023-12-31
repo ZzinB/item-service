@@ -3,6 +3,7 @@ package hello.itemservice.domain.item;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 //package 나눠도 되지만, 일단 규모가 작으니까 분리 안함 !
@@ -18,5 +19,9 @@ public class ItemRepository {
         store.put(item.getId(), item);
         return item;
     }
+    public Item findById(Long id){
+        return store.get(id);
+    }
+
 
 }

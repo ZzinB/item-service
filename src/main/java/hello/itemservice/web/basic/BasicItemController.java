@@ -37,17 +37,12 @@ public class BasicItemController {
         return "basic/addForm";
     }
 
+    /**
+     * @ModelAttribute("item") Item item
+     * model.addAttribute("item", item); 자동 추가 */
     @PostMapping("/add")
-    public String addItemV1(@RequestParam String itemName,
-                            @RequestParam int price,
-                            @RequestParam Integer quantity,
-                            Model model) {
-        Item item = new Item();
-        item.setItemName(itemName);
-        item.setPrice(price);
-        item.setQuantity(quantity);
-        itemRepository.save(item);
-        model.addAttribute("item", item);
+    public String addItemV2(@ModelAttribute("item") Item item, Model model) {
+        itemRepository.save(item); //model.addAttribute("item", item); //자동 추가, 생략 가능
         return "basic/item";
     }
 
